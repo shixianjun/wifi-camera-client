@@ -1,0 +1,202 @@
+[
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_focus_normal.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_focus_normal.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_downright_normal.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_downright_normal.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\image_button.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\image_button.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_up_normal.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_up_normal.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_left_pressed.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_left_pressed.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_mode_ioio_normal.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_mode_ioio_normal.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_left_normal.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_left_normal.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\dialog_header_control.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\dialog_header_control.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_right_normal.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_right_normal.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_focus_pressed.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_focus_pressed.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\center.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\center.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\edittext_bg.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\edittext_bg.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_up_pressed.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_up_pressed.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_down_pressed.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_down_pressed.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\image_button_bg.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\image_button_bg.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_downleft_pressed.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_downleft_pressed.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\spinner_bg_normal.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\spinner_bg_normal.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_login_normal.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_login_normal.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_downleft_normal.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_downleft_normal.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_snap_normal.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_snap_normal.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\seekbar_stripe_bg.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\seekbar_stripe_bg.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\seekbar_bg.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\seekbar_bg.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_upleft_normal.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_upleft_normal.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\image_divider.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\image_divider.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_mode_control_normal.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_mode_control_normal.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_launcher.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_cancel_normal.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_cancel_normal.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_flash_on_pressed.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_flash_on_pressed.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\spinner_bg_pressed.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\spinner_bg_pressed.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\logo_inex.jpg",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\logo_inex.jpg"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\dialog_header_ioio.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\dialog_header_ioio.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_flash_off_normal.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_flash_off_normal.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\spinner_dropdownlist_pressed.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\spinner_dropdownlist_pressed.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_mode_ioio_pressed.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_mode_ioio_pressed.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_center.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_center.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_start_normal.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_start_normal.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_snap_pressed.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_snap_pressed.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_downright_pressed.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_downright_pressed.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_right_pressed.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_right_pressed.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_flash_on_normal.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_flash_on_normal.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_down_normal.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_down_normal.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_cancel_pressed.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_cancel_pressed.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_login_pressed.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_login_pressed.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\spinner_dropdownlist_normal.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\spinner_dropdownlist_normal.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_mode_control_pressed.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_mode_control_pressed.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_upright_pressed.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_upright_pressed.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_upright_normal.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_upright_normal.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_start_pressed.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_start_pressed.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_upleft_pressed.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_upleft_pressed.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_flash_off_pressed.png",
+        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable-xhdpi\\button_flash_off_pressed.png"
+    }
+]

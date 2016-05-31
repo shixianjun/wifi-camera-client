@@ -1,0 +1,4 @@
+CHANGED,F:\workspace_studio\Androidcar\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\android\tools\fd\runtime\AppPatchesLoaderImpl.class
+CHANGED,F:\workspace_studio\Androidcar\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\demo\androidcar\MainActivity$MyThread$override.class
+CHANGED,F:\workspace_studio\Androidcar\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\demo\androidcar\MainActivity$5$override.class
+CHANGED,F:\workspace_studio\Androidcar\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\demo\androidcar\MainActivity$override.class
