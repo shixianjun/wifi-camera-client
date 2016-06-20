@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.graphics.Bitmap;
 import android.hardware.Camera;
+import android.hardware.SensorManager;
 import android.net.ConnectivityManager;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -34,8 +35,12 @@ import android.widget.Toast;
 
 import com.demo.androidcar.constant.Command;
 import com.demo.androidcar.constant.DirectionState;
+import com.demo.androidcar.util.BlueTooth;
+import com.demo.androidcar.util.Kalman;
+import com.demo.androidcar.util.Method;
 import com.demo.androidcar.util.MusicService;
 import com.demo.androidcar.util.MusicService.MyBinder;
+import com.demo.androidcar.util.Sensors;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -135,6 +140,46 @@ public class MainActivity extends Activity implements
 	private int lastPictureTakenTime = 0;
 	private static final int TAKE_PICTURE_COOLDOWN = 1000;
 
+
+   //start car relatived
+	//传感器相关变量
+	private byte[] byteboard={(byte)0x01,(byte)0x02,(byte)0x04,(byte)0x08,(byte)0x10,(byte)0x20,(byte)0x40,(byte)0x80};
+	private float[] value_ave;
+	private int N_allsensor;//总传感器数
+	private int BM_sensor;//传感器打开控制
+	private int N_reportsensor;//上报的数据的传感器数
+	private int sensorDelay = 12;//传感器的上报间隔
+	private boolean[] issends;
+	private boolean issendsensor = false;
+	private SensorManager sm;
+	private Sensors mySensors;
+
+	private boolean isacceleration = false;
+	private Kalman myKalman;
+	private byte counter_angle = 0;
+	private int counter_stati = 0;
+	private int counter_Stati = 0;
+	private float[] R_noise = {0,0};
+	private float[] Q_noise = {0,0};
+	private float[] R_angle = {0,0};
+	private float[] Accer_mean  = {0,0};
+	private float[] Angle_meas  = {0,0};
+
+	//蓝牙相关变量
+	private BlueTooth myBlueTooth=null;
+	private String btaddress;
+	private byte[] btOrderAccel ={(byte)0xFF,(byte)0x01,(byte)0x00,(byte)0x00,(byte)0xFE};
+	private byte[] btreceived   = {(byte)0xFF,(byte)0x01,(byte)0x00,(byte)0x00,(byte)0xFE};
+	private byte[] btOrder      ={(byte)0xFF,(byte)0x01,(byte)0x00,(byte)0x00,(byte)0xFE};
+	private int index_btmessage = 0;
+
+	//定时器变量
+	private Timer timer;//定时器
+	private TimerTask timertask;
+
+	private  boolean blueTooth_ok=false;
+
+
 	// 使用ServiceConnection来监听Service状态的变化
 	private ServiceConnection conn = new ServiceConnection() {
 
@@ -211,6 +256,8 @@ public class MainActivity extends Activity implements
 		}
 //		tv_ip_view.setText((String) msg.obj);
 		initService();
+
+		initCarRelatived();
 	}
 
 	public void init() {
@@ -250,6 +297,191 @@ public class MainActivity extends Activity implements
 		Log.d(tag, "onCreate===================" );
 	}
 
+	private void initCarRelatived(){
+		OpenSensor(BM_sensor);
+//		PictureHead[0] = (byte)0xfe;
+//		PictureHead[1] = (byte)0xfe;
+//		PictureHead[2] = (byte)0x01;
+//		PictureHead[7] = (byte)0xef;
+//		PictureHead[8] = (byte)0xef;
+
+		myBlueTooth=new BlueTooth(mHandler,btaddress);
+		blueTooth_ok=myBlueTooth.OpenBlueTooth();
+
+		Angle_meas = Method.Get_angle(mySensors.value_ins[3], mySensors.value_ins[2]);
+		Angle_meas[0] = Accer_mean[0] - Angle_meas[0];
+		Angle_meas[1] = Angle_meas[1] - Accer_mean[1];
+		myKalman = new Kalman(Angle_meas);
+		myKalman.Write_A(sensorDelay);
+		myKalman.Write_R(R_noise);
+		myKalman.Write_Q(Q_noise);
+
+		if(blueTooth_ok){
+			//静止指令
+			btOrder[1]=(byte)0x06;
+			btOrder[2]=(byte)0x00;
+			btOrder[3]=(byte)0x00;
+			myBlueTooth.sendCmd(btOrder);
+		}
+
+		TimeStart();
+	}
+	private void OpenSensor(int BMsensor){
+		sm = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+		mySensors = new Sensors(sm);
+		N_allsensor = mySensors.numberofsensor;
+//		recvTextWF.setText("传感器总数="+N_allsensor);
+		value_ave = new float[N_allsensor*3];
+		issends = new boolean[N_allsensor];
+		for(int i=0;i<N_allsensor;i++)
+		{
+			if ((BMsensor & byteboard[i])>0){
+				mySensors.opensensor(i);
+				issends[i] = true;
+				N_reportsensor++;
+			}
+		}
+	}
+
+	//定时器
+	public void TimeStart(){
+		timertask= new TimerTask() {
+			// TimerTask 是个抽象类,实现的是Runable类
+			@Override
+			public void run() {
+				if(issendsensor){
+					Thread mySendSensorData=new SendSensorData();
+					mySendSensorData.start();
+				}
+				if (isacceleration)
+				{
+					counter_angle ++;
+					Angle_meas = Method.Get_angle(mySensors.value_ins[2], mySensors.value_ins[3]);
+					Angle_meas[0] = Accer_mean[0] - Angle_meas[0];
+					Angle_meas[1] = Angle_meas[1] - Accer_mean[1];
+					float [] Angle_esti = myKalman.Get_Esti(Angle_meas);
+					int acceleration = Math.round(R_angle[0]*Angle_esti[0] + R_angle[1]*Angle_esti[1]);
+					if(acceleration>127)
+						acceleration = 127;
+					else if(acceleration < -127)
+						acceleration = -127;
+					btOrderAccel[2] =  counter_angle;
+					btOrderAccel[3] = (byte)acceleration;
+					myBlueTooth.sendCmd(btOrderAccel);
+				}
+				if (counter_stati < counter_Stati)
+				{
+					Angle_meas = Method.Get_angle(mySensors.value_ins[2], mySensors.value_ins[3]);
+					if (counter_stati == 0)
+					{
+						Accer_mean[0] = Angle_meas[0];
+						Accer_mean[1] = Angle_meas[1];
+					}
+					else
+					{
+						Accer_mean[0] += Angle_meas[0];
+						Accer_mean[1] += Angle_meas[1];
+						if (counter_stati == (counter_Stati -1))
+						{
+							Accer_mean[0] /=counter_Stati;
+							Accer_mean[1] /=counter_Stati;
+							isacceleration = true;
+							counter_Stati = 0;
+//							commessage ="静止统计完成";
+						}
+					}
+					counter_stati++;
+				}
+			}
+		};
+		timer = new Timer();
+		timer.schedule(timertask, 0, sensorDelay);
+	}
+
+	private class  SendSensorData extends Thread{
+		public SendSensorData(){
+
+		}
+		public void run(){
+			float[] sensordata=new float[N_reportsensor*3];
+			int m=0;
+			for (int i=0;i< N_allsensor ;i++){
+				if(issends[i]){
+					for(int j=0;j<3;j++){
+						sensordata[m*3+j] = mySensors.value_ins[i*3+j];
+					}
+					m++;
+				}
+			}
+//			myWifiData.WifiSend(Method.SensorData(sensordata));
+		}
+	}
+
+	private void cleanSendTimerTask() {
+		if (timertask != null) {
+			timertask.cancel();
+			timertask = null;
+		}
+		if (timer != null) {
+			timer.cancel();
+			timer.purge();
+			timer = null;
+		}
+	}
+
+	/** 其他功能性程序 */
+	//接收消息的接口
+	Handler mHandler = new Handler()
+	{
+		@Override
+		public void handleMessage(Message msg)
+		{
+			super.handleMessage(msg);
+			if (msg.what==0){
+				//recvTextWF.setText(myWifiData.recvMessage);// 刷新
+//				int clen = myWifiData.mInputbuffer.length;
+//				if(clen > 4)
+//				{
+//					byte[] tbuffer = new byte[clen];
+//					tbuffer = myWifiData.mInputbuffer.clone();
+//					myWifiData.mInputbuffer=null;
+//					Thread myWificommexplan=new Wificommexplan(tbuffer);
+//					myWificommexplan.start();
+//					recvTextWF.setText("comm:"+commessage);
+//				}
+//				else
+//				{
+//					recvTextWF.setText("接收异常");
+//				}
+			}
+			else if(msg.what==1){
+				if(myBlueTooth.inbuffer!=null){
+					int len_currentdata = myBlueTooth.inbuffer.length;
+					for (int i=0;i < len_currentdata; i++)
+					{
+						if (index_btmessage == 0)
+						{
+							if (myBlueTooth.inbuffer[i] == btreceived[0])
+								index_btmessage = 1;
+						}else if (index_btmessage >= 4)
+						{
+							if (myBlueTooth.inbuffer[i] == btreceived[4])
+//								myWifiData.WifiSend(Method.CarData(btreceived));
+
+							index_btmessage = 0;
+						}else
+						{
+							btreceived[index_btmessage] = myBlueTooth.inbuffer[i];
+							index_btmessage ++;
+						}
+					}
+				}
+			}else{
+//				recvTextBT.setText(myBlueTooth.recvMessage);
+			}
+		}
+	};
+
 	@Override
 	protected void onStart() {
 		// TODO Auto-generated method stub
@@ -264,12 +496,17 @@ public class MainActivity extends Activity implements
 
 	@SuppressWarnings("deprecation")
 	public void initCameraPreviewSize() {
-		Camera mCamera;
+		Camera mCamera = null;
 		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.GINGERBREAD) {
 			mCamera = Camera.open();
 		} else {
-			mCamera = Camera.open(0);
+			try{
+				mCamera = Camera.open(Method.FindFrontCamera());
+			}catch (Exception e){
+				e.printStackTrace();
+			}
 		}
+
 		Camera.Parameters params = mCamera.getParameters();
 		List<Camera.Size> previewSize=params.getSupportedPreviewSizes();
 		if(previewSize.size()==1){
@@ -707,6 +944,7 @@ public class MainActivity extends Activity implements
 		btnMoveForward.setPressed(true);
 		directionState = DirectionState.UP;
 		updateMovementSpeed(movementSpeed);
+		controlCar(movementSpeed);
 	}
 
 	@Override
@@ -714,6 +952,7 @@ public class MainActivity extends Activity implements
 		btnMoveForwardRight.setPressed(true);
 		directionState = DirectionState.UPRIGHT;
 		updateMovementSpeed(movementSpeed);
+		controlCar(movementSpeed);
 	}
 
 	@Override
@@ -721,6 +960,7 @@ public class MainActivity extends Activity implements
 		btnMoveForwardLeft.setPressed(true);
 		directionState = DirectionState.UPLEFT;
 		updateMovementSpeed(movementSpeed);
+		controlCar(movementSpeed);
 	}
 
 	@Override
@@ -728,6 +968,7 @@ public class MainActivity extends Activity implements
 		btnMoveDown.setPressed(true);
 		directionState = DirectionState.DOWN;
 		updateMovementSpeed(movementSpeed);
+		controlCar(movementSpeed);
 	}
 
 	@Override
@@ -735,6 +976,7 @@ public class MainActivity extends Activity implements
 		btnMoveDownRight.setPressed(true);
 		directionState = DirectionState.DOWNRIGHT;
 		updateMovementSpeed(movementSpeed);
+		controlCar(movementSpeed);
 	}
 
 	@Override
@@ -742,6 +984,7 @@ public class MainActivity extends Activity implements
 		btnMoveDownLeft.setPressed(true);
 		directionState = DirectionState.DOWNLEFT;
 		updateMovementSpeed(movementSpeed);
+		controlCar(movementSpeed);
 	}
 
 	@Override
@@ -749,6 +992,7 @@ public class MainActivity extends Activity implements
 		btnMoveLeft.setPressed(true);
 		directionState = DirectionState.LEFT;
 		updateMovementSpeed(movementSpeed);
+		controlCar(movementSpeed);
 	}
 
 	@Override
@@ -756,6 +1000,7 @@ public class MainActivity extends Activity implements
 		btnMoveRight.setPressed(true);
 		directionState = DirectionState.RIGHT;
 		updateMovementSpeed(movementSpeed);
+		controlCar(movementSpeed);
 	}
 
 	@Override
@@ -768,6 +1013,85 @@ public class MainActivity extends Activity implements
 	public void onSendCommandSuccess() {
 
 	}
+
+	void controlCar(int movementSpeed){
+
+		switch(directionState){
+			case DirectionState.UP:
+				if(blueTooth_ok){
+					btOrder[1]=(byte)0x00;
+					btOrder[2]=(byte)(movementSpeed & 0xFF);
+					btOrder[3]=(byte)(movementSpeed & 0xFF);
+					myBlueTooth.sendCmd(btOrder);
+				}
+				break;
+			case DirectionState.DOWN:
+				if(blueTooth_ok){
+					btOrder[1]=(byte)0x00;
+					btOrder[2]=(byte)(-movementSpeed & 0xFF);
+					btOrder[3]=(byte)(-movementSpeed & 0xFF);
+					myBlueTooth.sendCmd(btOrder);
+				}
+				break;
+			case DirectionState.LEFT:
+				if(blueTooth_ok){
+					btOrder[1]=(byte)0x00;
+					btOrder[2]=(byte)(-movementSpeed & 0xFF);
+					btOrder[3]=(byte)(movementSpeed & 0xFF);
+					myBlueTooth.sendCmd(btOrder);
+				}
+				break;
+			case DirectionState.RIGHT:
+				if(blueTooth_ok){
+					btOrder[1]=(byte)0x00;
+					btOrder[2]=(byte)(movementSpeed & 0xFF);
+					btOrder[3]=(byte)(-movementSpeed & 0xFF);
+					myBlueTooth.sendCmd(btOrder);
+				}
+				break;
+			case DirectionState.UPRIGHT:
+				if(blueTooth_ok){
+					btOrder[1]=(byte)0x00;
+					btOrder[2]=(byte)(movementSpeed & 0xFF);
+					btOrder[3]=(byte)(movementSpeed/2 & 0xFF);
+					myBlueTooth.sendCmd(btOrder);
+				}
+				break;
+			case DirectionState.UPLEFT:
+				if(blueTooth_ok){
+					btOrder[1]=(byte)0x00;
+					btOrder[2]=(byte)(movementSpeed/2 & 0xFF);
+					btOrder[3]=(byte)(movementSpeed & 0xFF);
+					myBlueTooth.sendCmd(btOrder);
+				}
+				break;
+			case DirectionState.DOWNRIGHT:
+				if(blueTooth_ok){
+					btOrder[1]=(byte)0x00;
+					btOrder[2]=(byte)(movementSpeed & 0xFF);
+					btOrder[3]=(byte)(-movementSpeed/2 & 0xFF);
+					myBlueTooth.sendCmd(btOrder);
+				}
+				break;
+			case DirectionState.DOWNLEFT:
+				if(blueTooth_ok){
+					btOrder[1]=(byte)0x00;
+					btOrder[2]=(byte)(-movementSpeed/2 & 0xFF);
+					btOrder[3]=(byte)(movementSpeed & 0xFF);
+					myBlueTooth.sendCmd(btOrder);
+				}
+				break;
+			case DirectionState.STOP:
+				if(blueTooth_ok){
+					btOrder[1]=(byte)0x06;
+					btOrder[2]=(byte)(movementSpeed & 0xFF);
+					btOrder[3]=(byte)(movementSpeed & 0xFF);
+					myBlueTooth.sendCmd(btOrder);
+				}
+				break;
+		}
+	}
+
 
 	@Override
 	public void onSendCommandFailure() {
@@ -829,7 +1153,7 @@ public class MainActivity extends Activity implements
 
 	}
 	private static Boolean isQuit = false;
-	private Timer timer = new Timer();
+//	private Timer timer = new Timer();
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 

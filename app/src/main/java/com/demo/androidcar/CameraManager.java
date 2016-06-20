@@ -2,10 +2,13 @@ package com.demo.androidcar;
 
 import android.graphics.Bitmap;
 import android.hardware.Camera;
+import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+
+import com.demo.androidcar.util.Method;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -174,7 +177,17 @@ public class CameraManager implements Camera.PictureCallback, Camera.PreviewCall
 
     public void createCameraInstance(SurfaceHolder holder) {
         try {
-            mCamera = Camera.open(0);
+//            mCamera = Camera.open(0);
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.GINGERBREAD) {
+                mCamera = Camera.open();
+            } else {
+                try{
+                    mCamera = Camera.open(Method.FindFrontCamera());
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+
             mCamera.setPreviewDisplay(holder);
             mCamera.startPreview();
         } catch (IOException e) {

@@ -1,78 +1,78 @@
 [
     {
-        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_mode_control.xml",
-        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable\\button_mode_control.xml"
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_mode_control.xml",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\button_mode_control.xml"
     },
     {
-        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_upleft.xml",
-        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable\\button_upleft.xml"
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_down.xml",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\button_down.xml"
     },
     {
-        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_flash.xml",
-        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable\\button_flash.xml"
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_upleft.xml",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\button_upleft.xml"
     },
     {
-        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_left.xml",
-        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable\\button_left.xml"
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_mode_ioio.xml",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\button_mode_ioio.xml"
     },
     {
-        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\spinner_dropdownlist.xml",
-        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable\\spinner_dropdownlist.xml"
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\spinner_background.xml",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\spinner_background.xml"
     },
     {
-        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_upright.xml",
-        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable\\button_upright.xml"
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_upright.xml",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\button_upright.xml"
     },
     {
-        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_downleft.xml",
-        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable\\button_downleft.xml"
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_login.xml",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\button_login.xml"
     },
     {
-        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_up.xml",
-        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable\\button_up.xml"
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_left.xml",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\button_left.xml"
     },
     {
-        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_start.xml",
-        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable\\button_start.xml"
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_downright.xml",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\button_downright.xml"
     },
     {
-        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_cancel.xml",
-        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable\\button_cancel.xml"
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_start.xml",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\button_start.xml"
     },
     {
-        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_right.xml",
-        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable\\button_right.xml"
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_downleft.xml",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\button_downleft.xml"
     },
     {
-        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_down.xml",
-        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable\\button_down.xml"
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\seekbar_progress.xml",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\seekbar_progress.xml"
     },
     {
-        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_downright.xml",
-        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable\\button_downright.xml"
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_cancel.xml",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\button_cancel.xml"
     },
     {
-        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_focus.xml",
-        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable\\button_focus.xml"
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_right.xml",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\button_right.xml"
     },
     {
-        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\seekbar_progress.xml",
-        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable\\seekbar_progress.xml"
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_flash.xml",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\button_flash.xml"
     },
     {
-        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\spinner_background.xml",
-        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable\\spinner_background.xml"
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_snap.xml",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\button_snap.xml"
     },
     {
-        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_snap.xml",
-        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable\\button_snap.xml"
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_focus.xml",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\button_focus.xml"
     },
     {
-        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_login.xml",
-        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable\\button_login.xml"
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\spinner_dropdownlist.xml",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\spinner_dropdownlist.xml"
     },
     {
-        "merged": "F:\\workspace_studio\\Androidcar\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_mode_ioio.xml",
-        "source": "F:\\workspace_studio\\Androidcar\\app\\src\\main\\res\\drawable\\button_mode_ioio.xml"
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_up.xml",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\button_up.xml"
     }
 ]

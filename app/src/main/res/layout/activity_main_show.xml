@@ -40,7 +40,7 @@
         android:layout_centerVertical="true"
         android:layout_margin="10dp"
         android:orientation="vertical"
-        android:visibility="invisible">
+        android:visibility="visible">
 
         <LinearLayout
             android:layout_width="wrap_content"

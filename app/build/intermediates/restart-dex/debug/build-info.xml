@@ -4,28 +4,28 @@
     api-level="19"
     density="xxhdpi"
     format="7"
-    timestamp="20595294434776" >
+    timestamp="23987521110891" >
 
     <task
         name="javac"
-        duration="83" />
+        duration="926" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="17" />
+        duration="130" />
     <task
         name="verifier"
-        duration="3" />
+        duration="59" />
 
     <artifact
-        location="F:\workspace_studio\Androidcar\app\build\outputs\apk\app-debug.apk"
+        location="F:\workspace_studio\wifi-camera-client\app\build\outputs\apk\app-debug.apk"
         type="MAIN" />
 
-    <build timestamp="20595294434776" >
+    <build timestamp="353896137234123" >
         <artifact
-            location="F:\workspace_studio\Androidcar\app\build\outputs\apk\app-debug.apk"
+            location="F:\workspace_studio\wifi-camera-client\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
 
