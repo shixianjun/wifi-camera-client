@@ -180,12 +180,12 @@
         "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable-xhdpi\\button_up_pressed.png"
     },
     {
-        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_downright_normal.png",
-        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable-xhdpi\\button_downright_normal.png"
-    },
-    {
         "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_center.png",
         "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable-xhdpi\\button_center.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_downright_normal.png",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable-xhdpi\\button_downright_normal.png"
     },
     {
         "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_flash_off_pressed.png",

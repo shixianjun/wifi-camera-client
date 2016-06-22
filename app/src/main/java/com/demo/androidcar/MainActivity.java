@@ -167,7 +167,7 @@ public class MainActivity extends Activity implements
 
 	//蓝牙相关变量
 	private BlueTooth myBlueTooth=null;
-	private String btaddress;
+	private String btaddress="98:D3:31:40:8D:9E";
 	private byte[] btOrderAccel ={(byte)0xFF,(byte)0x01,(byte)0x00,(byte)0x00,(byte)0xFE};
 	private byte[] btreceived   = {(byte)0xFF,(byte)0x01,(byte)0x00,(byte)0x00,(byte)0xFE};
 	private byte[] btOrder      ={(byte)0xFF,(byte)0x01,(byte)0x00,(byte)0x00,(byte)0xFE};

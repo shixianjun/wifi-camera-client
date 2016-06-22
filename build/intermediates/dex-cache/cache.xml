@@ -1,12 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
+<items version="2" />
 
-    <item
-        jar="F:\workspace_studio\wifi-camera-client\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="50047eb9e9e28a2e71f6d2dff3e5b1a8927f35a7">
-        <dex dex="F:\workspace_studio\wifi-camera-client\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_4901563961625dd816bf55281852e2b3eee8c676.jar" />
-    </item>
-
-</items>
