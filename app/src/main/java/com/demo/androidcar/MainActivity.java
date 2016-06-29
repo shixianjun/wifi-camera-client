@@ -137,7 +137,7 @@ public class MainActivity extends Activity implements
 	private SurfaceView surfacePreview;
 
 	private int selectedPreviewSize=1,imageQuality=80;// 0-100
-	private FrameLayout layoutParent;
+	private LinearLayout layoutParent;
 
 	private boolean isConnected = false;
 	private OutputStream outputStream;
@@ -233,7 +233,7 @@ public class MainActivity extends Activity implements
 		cameraManager = new CameraManager(selectedPreviewSize);
 		cameraManager.setCameraManagerListener(this);
 
-		layoutParent = (FrameLayout) findViewById(R.id.layout_parent);
+		layoutParent = (LinearLayout) findViewById(R.id.comera_container);
 		layoutParent.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				cameraManager.requestAutoFocus();
