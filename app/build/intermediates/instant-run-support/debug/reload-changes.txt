@@ -1,2 +1,4 @@
 CHANGED,F:\workspace_studio\wifi-camera-client\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\demo\androidcar\MainActivity$override.class
+CHANGED,F:\workspace_studio\wifi-camera-client\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\demo\androidcar\MainActivity$MyThread$override.class
 CHANGED,F:\workspace_studio\wifi-camera-client\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\android\tools\fd\runtime\AppPatchesLoaderImpl.class
+CHANGED,F:\workspace_studio\wifi-camera-client\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\demo\androidcar\MainActivity$7$override.class

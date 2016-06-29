@@ -14,5 +14,9 @@
     {
         "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
         "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\layout\\setting.xml",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\layout\\setting.xml"
     }
 ]

@@ -13,4 +13,6 @@ public class DirectionState {
     public static final int DOWNLEFT = 16;
     public static final int LEFT = 17;
     public static final int UPLEFT = 18;
+
+    public static final int INIT = 30;
 }

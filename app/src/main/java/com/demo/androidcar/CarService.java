@@ -58,28 +58,28 @@ public class CarService extends AsyncTask<Void, Void, Void> {
                             String command = text.substring(0, 2);
                             if (command.equalsIgnoreCase(Command.FORWARD)) {
                                 int speed = Integer.parseInt(text.substring(2, text.length()));
-                                handler.obtainMessage(Command.MESSAGE_UP, speed - 50).sendToTarget();
+                                handler.obtainMessage(Command.MESSAGE_UP, speed ).sendToTarget();
                             } else if (command.equalsIgnoreCase(Command.FORWARD_RIGHT)) {
                                 int speed = Integer.parseInt(text.substring(2, text.length()));
-                                handler.obtainMessage(Command.MESSAGE_UPRIGHT, speed - 50).sendToTarget();
+                                handler.obtainMessage(Command.MESSAGE_UPRIGHT, speed ).sendToTarget();
                             } else if (command.equalsIgnoreCase(Command.FORWARD_LEFT)) {
                                 int speed = Integer.parseInt(text.substring(2, text.length()));
-                                handler.obtainMessage(Command.MESSAGE_UPLEFT, speed - 50).sendToTarget();
+                                handler.obtainMessage(Command.MESSAGE_UPLEFT, speed ).sendToTarget();
                             } else if (command.equalsIgnoreCase(Command.BACKWARD)) {
                                 int speed = Integer.parseInt(text.substring(2, text.length()));
-                                handler.obtainMessage(Command.MESSAGE_DOWN, speed - 50).sendToTarget();
+                                handler.obtainMessage(Command.MESSAGE_DOWN, speed ).sendToTarget();
                             } else if (command.equalsIgnoreCase(Command.BACKWARD_RIGHT)) {
                                 int speed = Integer.parseInt(text.substring(2, text.length()));
-                                handler.obtainMessage(Command.MESSAGE_DOWNRIGHT, speed - 50).sendToTarget();
+                                handler.obtainMessage(Command.MESSAGE_DOWNRIGHT, speed ).sendToTarget();
                             } else if (command.equalsIgnoreCase(Command.BACKWARD_LEFT)) {
                                 int speed = Integer.parseInt(text.substring(2, text.length()));
-                                handler.obtainMessage(Command.MESSAGE_DOWNLEFT, speed - 50).sendToTarget();
+                                handler.obtainMessage(Command.MESSAGE_DOWNLEFT, speed ).sendToTarget();
                             } else if (command.equalsIgnoreCase(Command.RIGHT)) {
                                 int speed = Integer.parseInt(text.substring(2, text.length()));
-                                handler.obtainMessage(Command.MESSAGE_RIGHT, speed - 50).sendToTarget();
+                                handler.obtainMessage(Command.MESSAGE_RIGHT, speed ).sendToTarget();
                             } else if (command.equalsIgnoreCase(Command.LEFT)) {
                                 int speed = Integer.parseInt(text.substring(2, text.length()));
-                                handler.obtainMessage(Command.MESSAGE_LEFT, speed - 50).sendToTarget();
+                                handler.obtainMessage(Command.MESSAGE_LEFT, speed ).sendToTarget();
                             } else if (command.equalsIgnoreCase(Command.STOP)) {
                                 handler.obtainMessage(Command.MESSAGE_STOP).sendToTarget();
                             }
@@ -128,13 +128,15 @@ public class CarService extends AsyncTask<Void, Void, Void> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        int size;
+        byte[] buffer;
+        String data;
         while (isTaskRunning) {
             try {
-                int size = dataInputStream.readInt();
-                byte[] buffer = new byte[size];
+                size = dataInputStream.readInt();
+                buffer = new byte[size];
                 dataInputStream.readFully(buffer);
-                String data = new String(buffer);
+                data = new String(buffer);
 
                 if (data.equalsIgnoreCase(Command.SNAP)) {
                     handler.obtainMessage(Command.MESSAGE_SNAP).sendToTarget();
@@ -148,6 +150,8 @@ public class CarService extends AsyncTask<Void, Void, Void> {
                     handler.obtainMessage(Command.MESSAGE_PLAYPAUSE).sendToTarget();
                 }else if (data.equalsIgnoreCase(Command.PLAYSTORY)) {
                     handler.obtainMessage(Command.MESSAGE_PLAYSTORY).sendToTarget();
+                }else if (data.equalsIgnoreCase(Command.INIT)) {
+                    handler.obtainMessage(Command.MESSAGE_INIT).sendToTarget();
                 }
             } catch (EOFException e) {
                 e.printStackTrace();

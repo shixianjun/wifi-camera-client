@@ -20,12 +20,12 @@
         "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\spinner_background.xml"
     },
     {
-        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_login.xml",
-        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\button_login.xml"
-    },
-    {
         "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_upright.xml",
         "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\button_upright.xml"
+    },
+    {
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_login.xml",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable\\button_login.xml"
     },
     {
         "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_left.xml",

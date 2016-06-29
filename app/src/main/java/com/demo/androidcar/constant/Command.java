@@ -39,6 +39,7 @@ public class Command {
     public static final int MESSAGE_PLAYSONG = 19;
     public static final int MESSAGE_PLAYPAUSE = 20;
     public static final int MESSAGE_PLAYSTORY = 21;
+    public static final int MESSAGE_INIT = 22;
 
     public static final String FORWARD = "UU";
     public static final String FORWARD_RIGHT = "UR";
@@ -49,6 +50,7 @@ public class Command {
     public static final String RIGHT = "RR";
     public static final String LEFT = "LL";
     public static final String STOP = "SS";
+    public static final String INIT = "IN";
 
 
 }

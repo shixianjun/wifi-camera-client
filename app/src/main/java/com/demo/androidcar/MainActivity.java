@@ -1,11 +1,14 @@
 package com.demo.androidcar;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.hardware.Camera;
 import android.hardware.SensorManager;
@@ -18,9 +21,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Display;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -28,6 +34,9 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextClock;
 import android.widget.TextView;
@@ -128,7 +137,7 @@ public class MainActivity extends Activity implements
 	private SurfaceView surfacePreview;
 
 	private int selectedPreviewSize=1,imageQuality=80;// 0-100
-	private RelativeLayout layoutParent;
+	private FrameLayout layoutParent;
 
 	private boolean isConnected = false;
 	private OutputStream outputStream;
@@ -146,9 +155,11 @@ public class MainActivity extends Activity implements
 	private byte[] byteboard={(byte)0x01,(byte)0x02,(byte)0x04,(byte)0x08,(byte)0x10,(byte)0x20,(byte)0x40,(byte)0x80};
 	private float[] value_ave;
 	private int N_allsensor;//总传感器数
-	private int BM_sensor;//传感器打开控制
+
+	private int BM_sensor = 3;//传感器打开控制
 	private int N_reportsensor;//上报的数据的传感器数
-	private int sensorDelay = 12;//传感器的上报间隔
+	private int sensorDelay = 6;//传感器的上报间隔
+
 	private boolean[] issends;
 	private boolean issendsensor = false;
 	private SensorManager sm;
@@ -159,9 +170,9 @@ public class MainActivity extends Activity implements
 	private byte counter_angle = 0;
 	private int counter_stati = 0;
 	private int counter_Stati = 0;
-	private float[] R_noise = {0,0};
-	private float[] Q_noise = {0,0};
-	private float[] R_angle = {0,0};
+	private float[] R_noise = {0.2f,0.2f};
+	private float[] Q_noise = {0.1f,0.5f};
+	private float[] R_angle = {0.02f,0.02f};
 	private float[] Accer_mean  = {0,0};
 	private float[] Angle_meas  = {0,0};
 
@@ -178,6 +189,9 @@ public class MainActivity extends Activity implements
 	private TimerTask timertask;
 
 	private  boolean blueTooth_ok=false;
+
+	private RelativeLayout image_container;
+	private ImageView show_image;
 
 
 	// 使用ServiceConnection来监听Service状态的变化
@@ -206,7 +220,7 @@ public class MainActivity extends Activity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		this.requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉标题栏
+//		this.requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉标题栏
 		setContentView(R.layout.activity_main_show);
 
 		init();
@@ -219,7 +233,7 @@ public class MainActivity extends Activity implements
 		cameraManager = new CameraManager(selectedPreviewSize);
 		cameraManager.setCameraManagerListener(this);
 
-		layoutParent = (RelativeLayout) findViewById(R.id.layout_parent);
+		layoutParent = (FrameLayout) findViewById(R.id.layout_parent);
 		layoutParent.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				cameraManager.requestAutoFocus();
@@ -282,6 +296,10 @@ public class MainActivity extends Activity implements
 		btnMoveRight = (Button) findViewById(R.id.btn_move_right);
 		btnMoveLeft = (Button) findViewById(R.id.btn_move_left);
 		// et = (TextView)findViewById(R.id.TextView_ip_localip);
+
+
+		image_container = (RelativeLayout) findViewById(R.id.show_image_con);
+		show_image = (ImageView) findViewById(R.id.show_image);
 		initCameraPreviewSize();
 		tv_ip_view=(TextView)findViewById(R.id.tv_ip_address);
 	}
@@ -316,13 +334,7 @@ public class MainActivity extends Activity implements
 		myKalman.Write_R(R_noise);
 		myKalman.Write_Q(Q_noise);
 
-		if(blueTooth_ok){
-			//静止指令
-			btOrder[1]=(byte)0x06;
-			btOrder[2]=(byte)0x00;
-			btOrder[3]=(byte)0x00;
-			myBlueTooth.sendCmd(btOrder);
-		}
+
 
 		TimeStart();
 	}
@@ -340,6 +352,33 @@ public class MainActivity extends Activity implements
 				issends[i] = true;
 				N_reportsensor++;
 			}
+		}
+	}
+
+    // 小车放到小车之后调用该指令
+	void initDevice(){
+		if(blueTooth_ok){
+			//静止指令
+			btOrder[1]=(byte)0x06;
+			btOrder[2]=(byte)0x00;
+			btOrder[3]=(byte)0x00;
+			myBlueTooth.sendCmd(btOrder);
+			counter_Stati = 127 & 0xff;
+			counter_stati = 0;
+
+//			手机传感器初始化，用来平很小车
+//          FF FF FD 02 40 30  EF EF PID指令FF FF FD 03 10 00  EF EF PID指令
+			btOrder[1]=(byte)0x02;
+			btOrder[2]=(byte)0x40;
+			btOrder[3]=(byte)0x30;
+			myBlueTooth.sendCmd(btOrder);
+
+			btOrder[1]=(byte)0x03;
+			btOrder[2]=(byte)0x10;
+			btOrder[3]=(byte)0x00;
+			myBlueTooth.sendCmd(btOrder);
+
+
 		}
 	}
 
@@ -429,6 +468,36 @@ public class MainActivity extends Activity implements
 		}
 	}
 
+
+	//加载参数
+	private void LoadParameter(){
+		SharedPreferences preParas = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+//		pUsername=preParas.getString("Username", "XZY");
+		String tempStr=preParas.getString("ServerPort", "8001");
+//		serverPort=Integer.parseInt(tempStr);
+//		tempStr=preParas.getString("VideoPreRate", "1");
+//		VideoPreRate=Integer.parseInt(tempStr);
+//		tempStr=preParas.getString("VideoQuality", "85");
+//		VideoQuality=Integer.parseInt(tempStr);
+		btaddress = preParas.getString("BTaddress", "98:D3:31:40:8D:9E");
+		tempStr=preParas.getString("BM_sensor", "12");
+		BM_sensor = Integer.parseInt(tempStr);
+		tempStr=preParas.getString("SensorDelay", "100");
+		sensorDelay = Integer.parseInt(tempStr);
+		tempStr=preParas.getString("R_noise", "0.2,0.2");
+		String[] tempStr2 = tempStr.split(",");
+		R_noise[0] = Float.parseFloat(tempStr2[0]);
+		R_noise[1] = Float.parseFloat(tempStr2[1]);
+		tempStr=preParas.getString("Q_noise", "0.1,0.5");
+		tempStr2 = tempStr.split(",");
+		Q_noise[0] = Float.parseFloat(tempStr2[0]);
+		Q_noise[1] = Float.parseFloat(tempStr2[1]);
+		tempStr=preParas.getString("R_angle", "0,0");
+		tempStr2 = tempStr.split(",");
+		R_angle[0] = Float.parseFloat(tempStr2[0]);
+		R_angle[1] = Float.parseFloat(tempStr2[1]);
+	}
+
 	/** 其他功能性程序 */
 	//接收消息的接口
 	Handler mHandler = new Handler()
@@ -489,7 +558,7 @@ public class MainActivity extends Activity implements
 		Log.d(tag, "onStart===================" );
 //		configure();
 
-
+		LoadParameter();
 //		serverStart();
 		super.onStart();
 	}
@@ -918,6 +987,9 @@ public class MainActivity extends Activity implements
 	public void onRequestPlaySong() {
 		if (mBound) {
 			audioService.playSong();
+			image_container.setVisibility(View.VISIBLE);
+			show_image.setBackgroundResource(R.drawable.apple);
+			surfacePreview.setVisibility(View.GONE);
 
 		}
 	}
@@ -925,7 +997,9 @@ public class MainActivity extends Activity implements
 	public void onRequestPlayStory() {
 		if (mBound) {
 			audioService.playStory();
-
+			image_container.setVisibility(View.VISIBLE);
+			show_image.setBackgroundResource(R.drawable.white);
+			surfacePreview.setVisibility(View.GONE);
 		}
 	}
 
@@ -933,6 +1007,8 @@ public class MainActivity extends Activity implements
 	public void onRequestPlayPause() {
 		if (mBound) {
 			audioService.pause();
+			image_container.setVisibility(View.GONE);
+			surfacePreview.setVisibility(View.VISIBLE);
 
 		}
 	}
@@ -1007,6 +1083,14 @@ public class MainActivity extends Activity implements
 	public void onMoveStopCommand() {
 		directionState = DirectionState.STOP;
 		updateMovementSpeed(0);
+	}
+
+	@Override
+	public void onInitCommand() {
+		directionState = DirectionState.INIT;
+		updateMovementSpeed(0);
+//		Log.d(tag, "onInitCommand==========onInitCommand=========" );
+		initDevice();
 	}
 
 	@Override
@@ -1179,4 +1263,53 @@ public class MainActivity extends Activity implements
 	}
 
 
+	/**创建菜单*/
+	public boolean onCreateOptionsMenu(Menu menu)
+	{
+		menu.add(0,0,0,"系统设置");
+//		menu.add(0,1,1,"关于程序");
+//		menu.add(0,2,2,"退出程序");
+		return super.onCreateOptionsMenu(menu);
+	}
+	/**菜单选中时发生的相应事件*/
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		super.onOptionsItemSelected(item);//获取菜单
+		switch(item.getItemId())//菜单序号
+		{
+			case 0:
+				//系统设置
+			{
+				Intent intent=new Intent(this,SettingActivity.class);
+				startActivity(intent);
+			}
+			break;
+//			case 1://关于程序
+//			{
+//				new AlertDialog.Builder(this)
+//						.setTitle("关于本程序")
+//						.setMessage("本程序由大海工作室设计、编写。")
+//						.setPositiveButton
+//								(
+//										"我知道了",
+//										new DialogInterface.OnClickListener()
+//										{
+//											@Override
+//											public void onClick(DialogInterface dialog, int which)
+//											{
+//											}
+//										}
+//								)
+//						.show();
+//			}
+//			break;
+//			case 2://退出程序
+//			{
+//				//杀掉线程强制退出
+//				android.os.Process.killProcess(android.os.Process.myPid());
+//			}
+//			break;
+		}
+		return true;
+	}
 }

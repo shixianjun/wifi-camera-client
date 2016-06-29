@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+ <!--<PreferenceCategory android:title="服务器设置">-->
+   <!--<EditTextPreference-->
+   <!--android:key="Username"-->
+   <!--android:title="用户名"    -->
+   <!--android:summary="用于连接服务器的用户名"-->
+   <!--android:defaultValue="XZY"/>-->
+   <!--<EditTextPreference-->
+   <!--android:key="ServerPort"-->
+   <!--android:title="服务器端口"    -->
+   <!--android:summary="连接服务器的端口地址"-->
+   <!--android:defaultValue="8001"/>-->
+<!--</PreferenceCategory>-->
+<!--<PreferenceCategory android:title="视频设置">-->
+<!--<EditTextPreference-->
+   <!--android:key="VideoPreRate"-->
+   <!--android:title="视频刷新间隔"    -->
+   <!--android:summary="设置视频刷新的间隔值，应大于等于0，值越大视频传输间隔越长"-->
+   <!--android:defaultValue="1"/>-->
+   <!--<EditTextPreference-->
+   <!--android:key="VideoQuality"-->
+   <!--android:title="图像质量"    -->
+   <!--android:summary="设置图像压缩的质量，值为0~100，值越高越清晰，但同时数据也更大"-->
+   <!--android:defaultValue="85"/>-->
+ <!--</PreferenceCategory>-->
+ <PreferenceCategory android:title="蓝牙设置">   
+   <EditTextPreference
+   android:key="BTaddress"
+   android:title="蓝牙地址"    
+   android:summary="保存蓝牙地址"
+   android:defaultValue="98:D3:31:40:8D:9E"/>
+ </PreferenceCategory>
+  <PreferenceCategory android:title="传感器设置">   
+   <EditTextPreference
+   android:key="BM_sensor"
+   android:title="传感器控制位"    
+   android:summary="保存传感器控制位"
+   android:defaultValue="0"/>
+   <EditTextPreference
+   android:key="SensorDelay"
+   android:title="传感器发送周期"    
+   android:summary="保存传感器发送周期"
+   android:defaultValue="12"/>
+   <EditTextPreference
+   android:key="R_noise"
+   android:title="测量噪声"    
+   android:summary="保存测量噪声"
+   android:defaultValue="0.2,0.2"/>
+   <EditTextPreference
+   android:key="Q_noise"
+   android:title="预测过程噪声"    
+   android:summary="保存预测过程噪声"
+   android:defaultValue="0.1,0.5"/>
+   <EditTextPreference
+   android:key="R_angle"
+   android:title="加速调整系数"    
+   android:summary="保存加速调整系数"
+   android:defaultValue="0.1,0.5"/>   
+ </PreferenceCategory> 
+</PreferenceScreen>

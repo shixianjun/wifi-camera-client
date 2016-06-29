@@ -89,6 +89,8 @@ public class ConnectionManager {
                 onMoveLeftCommand((Integer) msg.obj);
             } else if (messageType == Command.MESSAGE_STOP) {
                 onMoveStopCommand();
+            }else if(messageType == Command.MESSAGE_INIT){
+                onInitCommand();
             }
         }
     };
@@ -209,6 +211,11 @@ public class ConnectionManager {
             commandListener.onMoveStopCommand();
     }
 
+    public void onInitCommand() {
+        if(commandListener != null)
+            commandListener.onInitCommand();
+    }
+
     public void stop() {
         if (ioio != null)
             ioio.killTask();
@@ -280,6 +287,7 @@ public class ConnectionManager {
         public void onMoveLeftCommand(int speed);
         public void onMoveRightCommand(int speed);
         public void onMoveStopCommand();
+        public void onInitCommand();
     }
 
     public interface SendCommandListener {

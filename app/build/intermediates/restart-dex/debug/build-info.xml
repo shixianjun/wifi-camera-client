@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
     abi="armeabi-v7a,armeabi"
-    api-level="19"
+    api-level="21"
     density="xxhdpi"
     format="7"
-    timestamp="2298112388053" >
+    timestamp="2792891472114" >
 
     <task
         name="javac"
-        duration="89" />
+        duration="94" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="21" />
+        duration="23" />
     <task
         name="verifier"
-        duration="10" />
+        duration="3" />
 
     <artifact
         location="F:\workspace_studio\wifi-camera-client\app\build\outputs\apk\app-debug.apk"
         type="MAIN" />
 
-    <build timestamp="2298112388053" >
+    <build timestamp="2792891472114" >
         <artifact
             location="F:\workspace_studio\wifi-camera-client\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />

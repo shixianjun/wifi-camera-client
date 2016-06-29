@@ -40,6 +40,10 @@
         "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable-xhdpi\\button_downright_pressed.png"
     },
     {
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\apple.jpg",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable-xhdpi\\apple.jpg"
+    },
+    {
         "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_start_normal.png",
         "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable-xhdpi\\button_start_normal.png"
     },
@@ -116,6 +120,10 @@
         "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable-xhdpi\\button_down_normal.png"
     },
     {
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\white.jpg",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable-xhdpi\\white.jpg"
+    },
+    {
         "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_right_pressed.png",
         "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable-xhdpi\\button_right_pressed.png"
     },
@@ -148,12 +156,12 @@
         "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable-xhdpi\\button_down_pressed.png"
     },
     {
-        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_start_pressed.png",
-        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable-xhdpi\\button_start_pressed.png"
-    },
-    {
         "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_right_normal.png",
         "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable-xhdpi\\button_right_normal.png"
+    },
+    {
+        "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_start_pressed.png",
+        "source": "F:\\workspace_studio\\wifi-camera-client\\app\\src\\main\\res\\drawable-xhdpi\\button_start_pressed.png"
     },
     {
         "merged": "F:\\workspace_studio\\wifi-camera-client\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\button_left_pressed.png",
