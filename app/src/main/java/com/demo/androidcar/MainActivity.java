@@ -1083,6 +1083,7 @@ public class MainActivity extends Activity implements
 	public void onMoveStopCommand() {
 		directionState = DirectionState.STOP;
 		updateMovementSpeed(0);
+		controlCar(0);
 	}
 
 	@Override
@@ -1167,9 +1168,11 @@ public class MainActivity extends Activity implements
 				break;
 			case DirectionState.STOP:
 				if(blueTooth_ok){
-					btOrder[1]=(byte)0x06;
-					btOrder[2]=(byte)(movementSpeed & 0xFF);
-					btOrder[3]=(byte)(movementSpeed & 0xFF);
+					btOrder[1]=(byte)0x00;
+					btOrder[2]=(byte)0x00;
+					btOrder[3]=(byte)0x00;
+//					btOrder[2]=(byte)(movementSpeed & 0xFF);
+//					btOrder[3]=(byte)(movementSpeed & 0xFF);
 					myBlueTooth.sendCmd(btOrder);
 				}
 				break;
